@@ -8,7 +8,7 @@ puts "Please enter the JSON URL:"
 print "> "
 url = gets.chomp
 
-# verify if the given URL is JSON
+# verify if the given URL is JSON.
 if url[-4..-1] != "json"
   puts "This is not a JSON Url, please enter a valid url"
   return
