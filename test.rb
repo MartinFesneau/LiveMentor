@@ -22,11 +22,13 @@ def test_convert
     CSV.foreach(csv_file, csv_options) do |row|
       profiles << row
     end
+  else
+    puts "Error, there is no existing file"
   end
   if profiles[0][:email] == "colleengriffith@quintity.com"
-    puts "test csv passed".colorize(:green)
+    puts "Test CSV passed".colorize(:green)
   else
-    puts "Test csv failed".colorize(:red)
+    puts "Test CSV failed".colorize(:red)
   end
 end
 
