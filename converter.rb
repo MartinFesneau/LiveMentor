@@ -27,7 +27,9 @@ def convert(url)
     data.each do |hash|
       row = headers.map do |header|
         # dig the nested values => https://ruby-doc.org/core-2.3.0_preview1/Hash.html#method-i-dig
-        # use split on "." then the splat operator to use the dig method with each key of the header
+        # use split on "." then the splat operator to use the dig method with each key of the header :
+          # "profiles.facebook.id" become ["profiles", "facebook", "id"]
+          #  with * it is equivalent to: hash.dig("profile", "facebook", "id")
         value = hash.dig(*header.split("."))
         # if the element is an array, join it to have the format we want
         value.class == Array ? value.join(", ") : value  # Fix up arrays
@@ -38,8 +40,7 @@ def convert(url)
   puts "CSV file created, type '$ open output.csv' to open it"
 end
 
-
-private 
+private
 
 def get_absolute_path(hash, nested_key=nil)
   keys = []
