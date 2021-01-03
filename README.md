@@ -1,3 +1,6 @@
+How to use : 
+Clone the repository and go to the folder
+
 In the terminal, type :
   $ ruby lib.rb
   
